@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Découvrez l'album photo personnel d'IR Guillaume Ostoko : portraits et souvenirs hébergés sur Cloudinary."
+    />
+    <meta name="theme-color" content="#f7f5ef" />
+    <title>IR Guillaume Ostoko — Album photo</title>
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#accueil" aria-label="IR Guillaume Ostoko, accueil">
+        <span class="brand-monogram" aria-hidden="true">GO</span>
+        <span>IR GUILLAUME <span class="brand-muted">OSTOKO</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="#galerie">La galerie</a>
+        <a href="#apropos">À propos</a>
+      </nav>
+      <a class="header-cta" href="#galerie">Voir les photos <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <main>
+      <section class="hero" id="accueil" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> ALBUM PERSONNEL <span class="eyebrow-divider">/</span> 2026</p>
+          <h1 id="hero-title">Des images,<br />des instants,<br /><em>une histoire.</em></h1>
+          <p class="hero-description">
+            Bienvenue dans mon album photo. J'y rassemble des portraits, des rencontres et des souvenirs qui me tiennent à cœur. Chaque image raconte une petite part de mon parcours : un lieu que j'ai traversé, une journée particulière ou un instant que j'ai eu envie de garder. Je vous invite à prendre le temps de les découvrir.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#galerie">Découvrir l'album <span aria-hidden="true">↘</span></a>
+            <span class="photo-count"><strong>04</strong> photos à découvrir</span>
+          </div>
+          <div class="hero-note"><span aria-hidden="true">✳</span> Des souvenirs personnels, conservés en images.</div>
+        </div>
+        <div class="hero-collage" aria-label="Deux photos de l'album">
+          <a class="collage-photo collage-main" href="https://res.cloudinary.com/uwt5faeq/image/upload/v1794504259/WhatsApp_Image_2026-11-12_at_18.15.34.jpg" data-media-id="souvenir-campus" aria-label="Ouvrir la photo Sur le campus">
+            <img src="https://res.cloudinary.com/uwt5faeq/image/upload/f_auto,q_auto,w_800,c_limit/v1794504259/WhatsApp_Image_2026-11-12_at_18.15.34.jpg" alt="Portrait en pied dans une galerie extérieure" fetchpriority="high" />
+          </a>
+          <a class="collage-photo collage-small" href="https://res.cloudinary.com/uwt5faeq/image/upload/v1794504258/WhatsApp_Image_2026-11-12_at_18.1.jpg" data-media-id="elegance-quotidien" aria-label="Ouvrir la photo Élégance au quotidien">
+            <img src="https://res.cloudinary.com/uwt5faeq/image/upload/f_auto,q_auto,w_520,c_limit/v1794504258/WhatsApp_Image_2026-11-12_at_18.1.jpg" alt="Portrait dans un intérieur chaleureux" />
+          </a>
+          <span class="collage-caption"><span aria-hidden="true">✳</span> INSTANTS CHOISIS<br />AVEC LE CŒUR</span>
+        </div>
+        <a class="scroll-cue" href="#galerie"><span aria-hidden="true">↓</span> Faire défiler</a>
+      </section>
+
+      <section class="gallery-section" id="galerie" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MON ALBUM <span class="eyebrow-divider">/</span> 01</p>
+            <h2 id="gallery-title">Quelques moments <em>à partager.</em></h2>
+          </div>
+          <p class="section-intro">J'ai choisi ces images pour les moments qu'elles me rappellent. Ouvrez une photo pour en apprendre davantage, la partager ou retrouver son original.</p>
+        </div>
+
+        <div class="gallery-tools">
+          <div class="filter-tabs" role="group" aria-label="Filtrer les photos">
+            <button type="button" class="filter-tab is-active" data-filter="all" aria-pressed="true">Toutes <span>04</span></button>
+            <button type="button" class="filter-tab" data-filter="portrait" aria-pressed="false">Portraits</button>
+            <button type="button" class="filter-tab" data-filter="quotidien" aria-pressed="false">Quotidien</button>
+            <button type="button" class="filter-tab" data-filter="lieu" aria-pressed="false">Lieux</button>
+            <button type="button" class="filter-tab favorites-filter" data-filter="favorites" aria-pressed="false">☆ Favoris</button>
+          </div>
+          <div class="toolbar-tools">
+            <label class="search-field">
+              <span aria-hidden="true">⌕</span>
+              <span class="visually-hidden">Rechercher une photo</span>
+              <input id="media-search" type="search" placeholder="Rechercher..." autocomplete="off" />
+              <kbd>/</kbd>
+            </label>
+            <label class="sort-field">
+              <span class="visually-hidden">Trier les photos</span>
+              <select id="sort-select" aria-label="Trier les photos">
+                <option value="recent">Plus récentes</option>
+                <option value="name">Nom (A à Z)</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="media-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">⌕</span>
+          <strong>Aucune photo trouvée</strong>
+          <p>Essayez un autre mot-clé ou un autre filtre.</p>
+          <button type="button" id="reset-filters">Réinitialiser</button>
+        </div>
+        <p class="gallery-note"><span aria-hidden="true">✳</span> Toutes les photos originales sont hébergées sur Cloudinary.</p>
+      </section>
+
+      <section class="story-section" aria-labelledby="story-title">
+        <div class="story-heading">
+          <p class="eyebrow">QUELQUES MOTS <span class="eyebrow-divider">/</span> 02</p>
+          <h2 id="story-title">Pourquoi je garde <em>ces images.</em></h2>
+          <p>Pour moi, une photographie ne se limite pas à ce qu'elle montre. Elle me permet de retrouver une ambiance, de me rappeler une rencontre et de revoir les petits détails d'une journée ordinaire.</p>
+        </div>
+        <div class="story-cards">
+          <article class="story-card story-card-green">
+            <span class="story-number">01</span>
+            <h3>Des moments vrais</h3>
+            <p>Je préfère les scènes simples, celles qui ressemblent à la vie et qui me font sourire quand je les revois.</p>
+          </article>
+          <article class="story-card story-card-clay">
+            <span class="story-number">02</span>
+            <h3>Des lieux familiers</h3>
+            <p>Un couloir, une porte ou un intérieur peuvent devenir le décor d'un souvenir auquel je tiens.</p>
+          </article>
+          <article class="story-card story-card-blue">
+            <span class="story-number">03</span>
+            <h3>Des souvenirs à partager</h3>
+            <p>J'ai créé cet album pour réunir ces images au même endroit et les partager facilement avec mes proches.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="apropos">
+      <a class="brand footer-brand" href="#accueil">
+        <span class="brand-monogram" aria-hidden="true">GO</span>
+        <span>IR GUILLAUME <span class="brand-muted">OSTOKO</span></span>
+      </a>
+      <p>Merci d'avoir pris le temps de parcourir mon album.</p>
+      <a class="back-top" href="#accueil">Retour en haut ↑</a>
+    </footer>
+
+    <dialog class="preview-dialog" id="preview-dialog" aria-labelledby="modal-title">
+      <div class="preview-layout">
+        <div class="preview-visual">
+          <button class="preview-close" id="modal-close" type="button" aria-label="Fermer l'aperçu">×</button>
+          <button class="preview-step preview-previous" id="modal-previous" type="button" aria-label="Photo précédente">‹</button>
+          <img id="modal-image" src="" alt="" />
+          <button class="preview-step preview-next" id="modal-next" type="button" aria-label="Photo suivante">›</button>
+          <span class="preview-position" id="modal-counter"></span>
+        </div>
+        <aside class="preview-details">
+          <div class="preview-topline"><span class="detail-badge" id="modal-category"></span><span class="detail-menu" aria-hidden="true">✳</span></div>
+          <h2 id="modal-title"></h2>
+          <p class="modal-subtitle" id="modal-subtitle"></p>
+          <p class="modal-description" id="modal-description"></p>
+          <div class="modal-facts" id="modal-facts"></div>
+          <div class="detail-divider"></div>
+          <p class="file-label">LIEN DE L'IMAGE ORIGINALE</p>
+          <a class="public-url" id="modal-url" href="" target="_blank" rel="noopener noreferrer"></a>
+          <div class="modal-actions">
+            <button class="action-primary" id="modal-share" type="button"><span aria-hidden="true">↗</span> Partager</button>
+            <button class="action-secondary" id="modal-copy" type="button"><span aria-hidden="true">▢</span> Copier le lien</button>
+            <a class="action-secondary action-download" id="modal-download" href="" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↓</span> Télécharger l'image originale</a>
+          </div>
+          <p class="modal-status" id="modal-status" role="status" aria-live="polite"></p>
+        </aside>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
